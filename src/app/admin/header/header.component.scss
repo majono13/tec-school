@@ -1,9 +1,10 @@
 mat-toolbar {
   justify-content: space-between;
   align-items: center;
-  background-image: linear-gradient(to right, var(--cor3), var(--cor2), var(--cor1));
+  background-image: linear-gradient(to right, var(--cor2), var(--cor1));
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.603);
   padding: 20px;
+
 }
 
 .name {
@@ -20,4 +21,10 @@ mat-toolbar {
 
 #exit-icon {
   cursor: pointer;
+}
+
+@media(max-width:768px) {
+  mat-toolbar {
+    font-size: 1em;
+  }
 }

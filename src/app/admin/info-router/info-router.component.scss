@@ -1,0 +1,19 @@
+header {
+  margin-top: 30px;
+  text-align: left;
+  position: sticky;
+  top:0;
+  z-index: 99;
+  opacity: 1;
+  background-color: white;
+  padding-top: 10px;
+}
+
+h1 {
+  color: var(--cor4);
+  font-family: var(--font-text);
+}
+
+mat-divider {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.253);
+}

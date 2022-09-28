@@ -1,0 +1,22 @@
+form, h2 {
+  margin-top: 20px;
+  text-align: left;
+  padding: 0 10px;
+}
+
+h2 {
+  text-decoration: underline;
+  font-family: var(--font-text);
+  color: var(--cor4);
+}
+
+button {
+  margin-left: 15px;
+}
+
+button:hover {
+  opacity: .9;
+
+  transition: .3s;
+}
+
