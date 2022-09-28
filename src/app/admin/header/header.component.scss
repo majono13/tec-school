@@ -1,3 +1,23 @@
-p {
-  background-color: black;
+mat-toolbar {
+  justify-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(to right, var(--cor3), var(--cor2), var(--cor1));
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.603);
+  padding: 20px;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor4)
+}
+
+.name p {
+  margin-top: 10px;
+}
+
+
+#exit-icon {
+  cursor: pointer;
 }
