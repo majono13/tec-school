@@ -16,7 +16,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSidenavModule } from '@angular/material/sidenav';
-
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -37,7 +37,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatMenuModule,
     MatDialogModule,
     MatPaginatorModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatGridListModule
   ],
   declarations: [
   ],

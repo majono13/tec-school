@@ -1,0 +1,35 @@
+.container-fluid {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  padding: 0;
+}
+
+.menu-component {
+  position:fixed;
+  z-index:0;
+  left:0%;
+  overflow:hidden;
+}
+
+.content {
+  margin-left: auto;
+}
+
+
+.row, .container, .menu-component {
+  margin: 0;
+  padding: 0;
+}
+
+@media(max-width:767px) {
+
+
+  .menu-component-mobile {
+    visibility: visible;
+  }
+
+  .button-menu {
+    display: block;
+  }
+}

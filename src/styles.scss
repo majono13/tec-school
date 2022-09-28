@@ -1,6 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+/********* Configurações material design **********/
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@use '@angular/material' as mat;
+@include mat.core();
 
 
+$my-primary: mat.define-palette(mat.$indigo-palette,800);
+$my-accent: mat.define-palette(mat.$teal-palette, A200);
+
+$my-theme: mat.define-light-theme((
+  color:(
+    primary: $my-primary,
+    accent: $my-accent,
+  )
+));
+
+@include mat.core-theme($my-theme);
+@include mat.all-component-themes($my-theme);
+
+/****************************/
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url('./bootstrap-grid.min.css');
+
+:root {
+  --cor-body: rgb(236, 236, 236);
+  --cor1: #023E73;
+  --cor2: #05C7F2;
+  --cor3: #05F2DB;
+  --cor4: #012340;
+
+  --font-text: "Montserrat", sans-serif;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-text);
+}

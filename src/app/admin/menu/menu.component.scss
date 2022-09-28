@@ -1,3 +1,78 @@
-mat-drawer-container {
+.nav {
+  background-image: linear-gradient(to bottom, var(--cor3), var(--cor2), var(--cor1), var(--cor4));
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.575);
   height: 100vh;
+}
+
+.act {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo-img {
+  cursor: pointer;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+span {
+  cursor: pointer;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  display: none;
+  padding-top: 10px;
+  font-size: .9em;
+}
+
+.logo-img:hover, span:hover {
+  background-color: rgba(0, 0, 0, 0.164);
+
+  mat-icon {
+    display: none;
+  }
+
+  .info {
+    display: block;
+  }
+
+  transition: 0.5s;
+}
+
+.logo-img img{
+  max-width: 50%;
+}
+
+img {
+  max-width: 30%;
+  padding-left: 10px;
+}
+
+
+@media(max-width:767px){
+  .logo-img img{
+    max-width: 70%;
+  }
+
+   span:hover {
+    background-color: rgba(0, 0, 0, 0.164);
+
+    .info {
+      display: none;
+    }
+
+    mat-icon {
+      display: block;
+    }
+
+  }
 }
