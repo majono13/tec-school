@@ -7,7 +7,6 @@ import { MenuComponent } from './menu/menu.component';
 import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './header/header.component';
 import { AlunosModule } from './alunos/alunos.module';
-import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +20,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     AdminRoutingModule,
     AlunosModule,
-    ReactiveFormsModule
   ]
 })
 export class AdminModule { }
