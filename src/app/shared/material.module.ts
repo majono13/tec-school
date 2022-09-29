@@ -21,6 +21,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   imports: [],
   exports: [
@@ -44,6 +45,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     MatListModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTableModule,
+
   ],
   declarations: [
   ],

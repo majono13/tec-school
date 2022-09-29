@@ -1,0 +1,22 @@
+<table>
+
+  <thead>
+    <td>Nome</td>
+    <td>Curso</td>
+    <td></td>
+  </thead>
+
+  <tbody *ngFor="let student of pageSlice">
+    <td>{{student?.firstname | upper}} {{student?.lastname | upper}}</td>
+    <td>{{student?.course}}</td>
+    <td><button mat-button color="primary">Detalhes</button></td>
+  </tbody>
+
+</table>
+
+<mat-paginator
+(page)="onPageEvent($event)"
+[length]="students.length"
+[pageSizeOptions]="[10, 25, 100]"
+aria-label="Select page">
+</mat-paginator>

@@ -9,13 +9,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from 'src/environments/environment';
-import { UpperPipe } from './pipes/upper.pipe';
 import { MaterialModule } from './shared/material.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UpperPipe,
   ],
   imports: [
     BrowserModule,
