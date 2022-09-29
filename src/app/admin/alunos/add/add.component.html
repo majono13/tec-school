@@ -1,39 +1,54 @@
 <h2>Adcionar novo aluno</h2>
 
-<form (ngSubmit)="onSubmit()" [formGroup]="newStudentForm">
-  <div class="row">
+<form (ngSubmit)="onSubmit()" [formGroup]="newStudentForm" #form="ngForm">
 
-    <mat-form-field appearance="outline" class="col-12 col-md-6">
+  <!-- nome, sobrenome, email -->
+  <div class="row">
+    <mat-form-field appearance="outline" class="col-12">
       <mat-label>Nome</mat-label>
       <input matInput placeholder="Nome do aluno" formControlName="firstname">
 
       <mat-error>Campo "Nome" deve ter 3 ou mais caracteres</mat-error>
-
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="col-12 col-md-6">
+    <mat-form-field appearance="outline" class="col-12">
       <mat-label>Sobrenome</mat-label>
       <input matInput placeholder="Sobrenome do aluno" formControlName="lastname">
 
       <mat-error>Campo "Sobrenome" deve ter 3 ou mais caracteres</mat-error>
     </mat-form-field>
-  </div>
 
-  <div class="row">
-    <mat-form-field appearance="outline" class="col-12 col-md-6">
+    <mat-form-field appearance="outline" class="col-12">
       <mat-label>E-mail</mat-label>
       <input matInput placeholder="E-mail do aluno" formControlName="email">
 
       <mat-error>E-mail inválido</mat-error>
+    </mat-form-field>
+  </div>
+
+  <!-- ano nascimento, telefone -->
+  <div class="row">
+    <span>Ano de nascimento:</span>
+
+    <mat-form-field class="col-12 col-md-6" appearance="outline">
+      <mat-label>Escolha a data</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="birthday" readonly>
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+
+      <mat-error>Este Campo não pode estar vazio</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="col-12 col-md-6">
       <mat-label>Telefone</mat-label>
       <input matInput placeholder="Telefone do aluno" formControlName="telephone">
 
-      <mat-error>Campo não pode estar vazio</mat-error>
+      <mat-error>Este Campo não pode estar vazio</mat-error>
     </mat-form-field>
-    </div>
+  </div>
 
     <!---------- Sessão endereço -------->
 
@@ -81,6 +96,7 @@
       </div>
     </section>
 
+    <!-- Genero -->
     <div class="row">
       <mat-radio-group aria-label="Sexo" class="col-12" formControlName="gender">
         <span>Sexo:</span>
@@ -91,8 +107,8 @@
       </mat-radio-group>
     </div>
 
-      <button mat-raised-button color="primary">Confirmar</button>
+      <button [disabled]="newStudentForm.invalid" mat-raised-button color="primary">Confirmar</button>
 
-      <button mat-raised-button color="warn">Cancelar</button>
+      <button (click)="cancel()" mat-raised-button color="warn">Cancelar</button>
 
 </form>

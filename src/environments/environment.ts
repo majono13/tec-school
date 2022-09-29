@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyA4E1M62s8CQsfR5BiET0t8oLH-w_zC1V8",
-    authDomain: "tec-school.firebaseapp.com",
-    projectId: "tec-school",
-    storageBucket: "tec-school.appspot.com",
-    messagingSenderId: "746742770518",
-    appId: "1:746742770518:web:c6d04356654fb688adc4f7",
-    measurementId: "G-4TNQH1YSQ9"
+    apiKey: "AIzaSyDa5p2W1N_qNRuQyvsOESeFf5vwxW7BYWw",
+    authDomain: "tec-school-3918e.firebaseapp.com",
+    projectId: "tec-school-3918e",
+    storageBucket: "tec-school-3918e.appspot.com",
+    messagingSenderId: "1093280981703",
+    appId: "1:1093280981703:web:a17ab52b07ebb79c7414e2",
+    measurementId: "G-25VTLDNBYL"
   }
 };
 
