@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Subject, takeUntil } from 'rxjs';
 import { Student } from '../../models/aluno.model';
 import { StudentsService } from '../students.service';
 import { Snackbar } from 'src/app/shared/components/snackbar.service';
+import { AddressService } from '../address.service';
 
 
 @Component({
@@ -39,8 +39,8 @@ export class AddComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
     private studService: StudentsService,
+    private addressService: AddressService,
     private snackbar_: Snackbar
   ) { }
 
@@ -59,39 +59,26 @@ export class AddComponent implements OnInit {
     };
 
     this.studService.newStudent(newStudent)
-      .then(() => this.snackbar_.notify('Aluno adicionado com sucesso!'))
+      .then(() => {
+        this.snackbar_.notify('Aluno adicionado com sucesso!');
+        this.cancel();
+      })
       .catch(() => this.snackbar_.notify('Falha a adicionar aluno, tente novamente ou contate um administrador.'));
-
-    this.cancel();
   }
 
   /***** Pega cep e endereço *****/
-  validateCep(cep: string): boolean {
-    const validateCep = /^[0-9]{8}$/;
-
-    return validateCep.test(cep);
-  }
-
   getAddress(inputValue: any) {
-    let cep = inputValue.target.value.replace(/\D/g, '');
 
-    if (this.validateCep(cep)) {
-      this.http.get("https://viacep.com.br/ws/" + cep + "/json")
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe(data => this.showAddress(data));
-    }
+    this.addressService.getAddress(inputValue)
+      .subscribe(data => {
+        if (data.erro) this.snackbar_.notify('CEP não encontrado!')
+        else this.showAddress(data);
+      });
   }
 
   showAddress(data: any) {
-    this.newStudentForm.patchValue({
 
-      address: {
-        street: data.logradouro,
-        district: data.bairro,
-        city: data.localidade,
-        state: data.uf.toUpperCase(),
-      }
-    });
+    this.addressService.showAddress(data, this.newStudentForm);
   }
 
 

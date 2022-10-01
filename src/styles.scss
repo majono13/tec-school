@@ -38,3 +38,12 @@ $my-theme: mat.define-light-theme((
   padding: 0;
   font-family: var(--font-text);
 }
+
+
+/****** Spinner ********/
+.spinner {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

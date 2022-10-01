@@ -1,0 +1,110 @@
+<h2>Adcionar novo aluno</h2>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="editStudentForm" #form="ngForm" *ngIf="student">
+
+  <!-- nome, sobrenome, email -->
+  <div class="row">
+    <mat-form-field appearance="outline" class="col-12">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Nome do aluno" formControlName="firstname">
+
+      <mat-error>Campo "Nome" deve ter 3 ou mais caracteres</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-12">
+      <mat-label>Sobrenome</mat-label>
+      <input matInput placeholder="Sobrenome do aluno" formControlName="lastname">
+
+      <mat-error>Campo "Sobrenome" deve ter 3 ou mais caracteres</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-12">
+      <mat-label>E-mail</mat-label>
+      <input matInput placeholder="E-mail do aluno" formControlName="email">
+
+      <mat-error>E-mail inválido</mat-error>
+    </mat-form-field>
+  </div>
+
+  <!-- ano nascimento, telefone -->
+  <div class="row">
+    <span>Ano de nascimento:</span>
+
+    <mat-form-field class="col-12 col-md-6" appearance="outline">
+      <mat-label>Digite a data:</mat-label>
+      <input matInput formControlName="birthday">
+
+      <mat-error>Este Campo não pode estar vazio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-12 col-md-6">
+      <mat-label>Telefone</mat-label>
+      <input matInput placeholder="Telefone do aluno" formControlName="telephone">
+
+      <mat-error>Este Campo não pode estar vazio</mat-error>
+    </mat-form-field>
+  </div>
+
+    <!---------- Sessão endereço -------->
+
+    <section formGroupName="address">
+      <div class="row">
+
+        <mat-form-field appearance="outline" class="col-12 col-md-4">
+          <mat-label>CEP</mat-label>
+          <input matInput placeholder="Digite o cep" formControlName="cep" (blur)="getAddress($event)">
+
+          <mat-error>Cep inválido</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="col-6 col-md-3">
+          <mat-label>Número</mat-label>
+          <input matInput placeholder="Número da casa" formControlName="n">
+          <mat-error>Campo "Número" não pode estar vazio</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="col-6 col-md-5">
+          <mat-label>Complemento</mat-label>
+          <input matInput placeholder="Complemento" formControlName="complement">
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="outline" class="col-12">
+          <mat-label>Rua</mat-label>
+          <input matInput placeholder="Rua" formControlName="street" readonly>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline" class="col-12 col-md-4" readonly>
+          <mat-label>Bairro</mat-label>
+          <input matInput placeholder="Bairro" formControlName="district" readonly>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="col-12 col-md-3">
+          <mat-label>Cidade</mat-label>
+          <input matInput placeholder="Cidade" formControlName="city" readonly>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="col-12 col-md-5">
+          <mat-label>Estado</mat-label>
+          <input matInput placeholder="Estado" formControlName="state" readonly>
+        </mat-form-field>
+      </div>
+    </section>
+
+    <!-- Genero -->
+    <div class="row">
+      <mat-radio-group aria-label="Sexo" class="col-12" formControlName="gender">
+        <span>Sexo:</span>
+        <mat-radio-button value="1">Feminino</mat-radio-button>
+        <mat-radio-button value="2">Masculino</mat-radio-button>
+        <mat-radio-button value="3">Outro</mat-radio-button>
+
+      </mat-radio-group>
+    </div>
+
+      <button [disabled]="editStudentForm.invalid" mat-raised-button color="primary">Confirmar</button>
+
+      <button (click)="cancel()" mat-raised-button color="warn">Cancelar</button>
+
+</form>
+

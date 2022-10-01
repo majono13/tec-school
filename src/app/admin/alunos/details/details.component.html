@@ -1,1 +1,44 @@
-<p>details works!</p>
+
+<div class="spinner" *ngIf="!student">
+  <mat-spinner></mat-spinner>
+</div>
+
+
+<mat-card *ngIf="student">
+  <mat-card-title>{{student?.firstname}} {{student?.lastname}}</mat-card-title>
+  <mat-card-subtitle>{{student?.course}}</mat-card-subtitle>
+
+  <div class="info row">
+
+    <div class="col-md-4">
+      <h3>Informações pessoais</h3>
+
+      <p><span>Nome:</span> {{student?.firstname}}</p>
+      <p><span>Sobrenome:</span> {{student?.lastname}}</p>
+      <p *ngIf="getAge()"><span>Idade:</span> {{getAge()}}</p>
+    </div>
+
+    <div class="col-md-4">
+      <h3>Informações de contato</h3>
+
+      <p><span>E-mail:</span> {{student?.email}}</p>
+      <p><span>Telefone:</span> {{student?.telephone}}</p>
+    </div>
+
+    <div class="col-md-4">
+      <h3>Endereço</h3>
+
+      <p><span>Endereço:</span> {{student?.address.street}}, {{student?.address.n}} - {{student?.address.district}}</p>
+      <p><span>Cidade:</span> {{student?.address.city}}</p>
+      <p><span>Estado:</span> {{student?.address.state}}</p>
+    </div>
+
+  </div>
+
+  <mat-card-actions>
+    <button routerLink="/admin/alunos" mat-button color="warn">Fechar</button>
+    <button routerLink="/admin/alunos/edit/{{student?.id}}" mat-button color="primary">Editar</button>
+  </mat-card-actions>
+</mat-card>
+
+<router-outlet></router-outlet>

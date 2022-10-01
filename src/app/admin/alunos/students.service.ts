@@ -17,9 +17,17 @@ export class StudentsService {
     return this.studentsCollection.valueChanges();
   }
 
+  getStudentById(id: string): Observable<Student | undefined> {
+    return this.studentsCollection.doc(id).valueChanges();
+  }
+
   newStudent(student: Student): Promise<void> {
     student.id = this.afs.createId();
 
     return this.studentsCollection.doc(student.id).set(student)
+  }
+
+  editStudent(student: Student) {
+    return this.studentsCollection.doc(student.id).set(student);
   }
 }

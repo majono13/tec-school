@@ -1,0 +1,19 @@
+mat-card {
+  margin-top: 50px;
+}
+
+mat-card-title, span, h3 {
+  color: var(--cor1);
+}
+
+h3 {
+  text-decoration: underline;
+}
+
+.info {
+  text-align: left;
+}
+
+span {
+  font-weight: bold;
+}

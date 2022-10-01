@@ -1,22 +1,28 @@
-<table>
 
-  <thead>
-    <td>Nome</td>
-    <td>Curso</td>
-    <td></td>
-  </thead>
+<div class="spinner" *ngIf="students.length == 0">
+  <mat-spinner></mat-spinner>
+</div>
 
-  <tbody *ngFor="let student of pageSlice">
-    <td>{{student?.firstname | upper}} {{student?.lastname | upper}}</td>
-    <td>{{student?.course}}</td>
-    <td><button mat-button color="primary">Detalhes</button></td>
-  </tbody>
+<div *ngIf="students.length > 0">
+  <table>
+    <thead>
+      <td>Nome</td>
+      <td>Curso</td>
+      <td></td>
+    </thead>
 
-</table>
+    <tbody *ngFor="let student of pageSlice">
+      <td>{{student?.firstname | upper}} {{student?.lastname | upper}}</td>
+      <td>{{student?.course}}</td>
+      <td><button routerLink="/admin/alunos/detalhes/{{student?.id}}" mat-button color="primary">Detalhes</button></td>
+    </tbody>
 
-<mat-paginator
-(page)="onPageEvent($event)"
-[length]="students.length"
-[pageSizeOptions]="[10, 25, 100]"
-aria-label="Select page">
-</mat-paginator>
+  </table>
+
+  <mat-paginator
+  (page)="onPageEvent($event)"
+  [length]="students.length"
+  [pageSizeOptions]="[10, 25, 100]"
+  aria-label="Select page">
+  </mat-paginator>
+</div>

@@ -3,15 +3,22 @@ import { CommonModule } from '@angular/common';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
-import { HomeComponent } from './home/home.component';
-import { MaterialModule } from 'src/app/shared/material.module';
 import { MatPaginatorIntl } from '@angular/material/paginator';
-import { InfoRouterComponent } from '../shared/components/info-router/info-router.component';
+
+// Modulos//
+import { AdminRoutingModule } from '../admin-routing.module';
+import { MaterialModule } from 'src/app/shared/material.module';
+import { SharedAdminModule } from '../shared/shared-admin.module';
+
+// Componentes//
+import { HomeComponent } from './home/home.component';
 import { AddComponent } from './add/add.component';
 import { StudentsComponent } from './students/students.component';
 import { UpperPipe } from 'src/app/pipes/upper.pipe';
 import { DetailsComponent } from './details/details.component';
+import { EditComponent } from './edit/edit.component';
+
+import { AddressService } from './address.service';
 
 /**** Configurações de idioma do paginator *****/
 const rangeLabel = (page: number, pageSize: number, length: number) => {
@@ -38,22 +45,24 @@ export function getIntl() {
 @NgModule({
   declarations: [
     HomeComponent,
-    InfoRouterComponent,
     AddComponent,
     StudentsComponent,
     UpperPipe,
     DetailsComponent,
+    EditComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-
+    AdminRoutingModule,
+    SharedAdminModule,
   ],
-  exports: [InfoRouterComponent],
+  exports: [],
   providers: [
-    { provide: MatPaginatorIntl, useValue: getIntl() }
+    { provide: MatPaginatorIntl, useValue: getIntl() },
+    AddressService
   ]
 })
 export class AlunosModule { }
