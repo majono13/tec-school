@@ -3,7 +3,16 @@
   <mat-spinner></mat-spinner>
 </div>
 
-<div *ngIf="students.length > 0">
+<!-- Campo pesquisa -->
+<div class="search-field">
+  <mat-form-field appearance="outline" class="col-12 col-md-7">
+    <input matInput placeholder="Faça sua pesquisa" [(ngModel)]="searchValue">
+    <mat-icon matSuffix>search</mat-icon>
+    <mat-hint>Pesquise pelo email do aluno</mat-hint>
+  </mat-form-field>
+</div>
+
+<div *ngIf="searchValue!== ''">
   <table>
     <thead>
       <td>Nome</td>
@@ -11,11 +20,30 @@
       <td></td>
     </thead>
 
-    <tbody *ngFor="let student of pageSlice">
-      <td>{{student?.firstname | upper}} {{student?.lastname | upper}}</td>
-      <td>{{student?.course}}</td>
-      <td><button routerLink="/admin/alunos/detalhes/{{student?.id}}" mat-button color="primary">Detalhes</button></td>
-    </tbody>
+      <tbody *ngFor="let student of search()">
+        <td>{{student?.firstname | upper}} {{student?.lastname | upper}}</td>
+        <td>{{student?.course}}</td>
+        <td><button routerLink="/admin/alunos/detalhes/{{student?.id}}" mat-button color="primary">Detalhes</button></td>
+      </tbody>
+
+  </table>
+</div>
+<!------------------->
+
+<!----- Todos os alunos ------>
+<div *ngIf="students.length > 0 && searchValue == ''">
+  <table>
+    <thead>
+      <td>Nome</td>
+      <td>Curso</td>
+      <td></td>
+    </thead>
+
+      <tbody *ngFor="let student of pageSlice">
+        <td>{{student?.firstname | upper}} {{student?.lastname | upper}}</td>
+        <td>{{student?.course}}</td>
+        <td><button routerLink="/admin/alunos/detalhes/{{student?.id}}" mat-button color="primary">Detalhes</button></td>
+      </tbody>
 
   </table>
 

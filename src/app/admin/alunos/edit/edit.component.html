@@ -1,4 +1,8 @@
-<h2>Adcionar novo aluno</h2>
+<h2>Editar aluno</h2>
+
+<div class="spinner" *ngIf="!student">
+  <mat-spinner></mat-spinner>
+</div>
 
 <form (ngSubmit)="onSubmit()" [formGroup]="editStudentForm" #form="ngForm" *ngIf="student">
 
@@ -102,7 +106,7 @@
       </mat-radio-group>
     </div>
 
-      <button [disabled]="editStudentForm.invalid" mat-raised-button color="primary">Confirmar</button>
+      <button type="sumbit" [disabled]="editStudentForm.invalid" mat-raised-button color="primary">Confirmar</button>
 
       <button (click)="cancel()" mat-raised-button color="warn">Cancelar</button>
 

@@ -102,7 +102,11 @@ export class EditComponent implements OnInit {
   }
 
   cancel() {
+    this.router.navigateByUrl(`/admin/alunos/detalhes/${this.student.id}`);
+  }
 
+  ngOnDestroy() {
+    this.unsubscribe$.complete();
   }
 
 }

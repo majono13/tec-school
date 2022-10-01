@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorIntl } from '@angular/material/paginator';
+import { FormsModule } from '@angular/forms';
 
 // Modulos//
 import { AdminRoutingModule } from '../admin-routing.module';
@@ -58,6 +59,7 @@ export function getIntl() {
     HttpClientModule,
     AdminRoutingModule,
     SharedAdminModule,
+    FormsModule,
   ],
   exports: [],
   providers: [

@@ -14,6 +14,7 @@ export class StudentsComponent implements OnInit {
   students: Student[] = [];
   pageSlice: Student[] = [];
   unsubscribe$: Subject<any> = new Subject();
+  searchValue: string = '';
 
   constructor(private studService: StudentsService, private sanckbar: Snackbar) { }
 
@@ -40,6 +41,17 @@ export class StudentsComponent implements OnInit {
     if (endIndex > this.students.length) endIndex = this.students.length;
 
     this.pageSlice = this.students.slice(startIndex, endIndex);
+  }
+
+  search() {
+    if (this.students.length === 0 || this.searchValue === undefined || this.searchValue.trim() === '') {
+      return this.students
+    }
+
+    return this.students.filter((v) => {
+      if (v.email.toLowerCase().indexOf(this.searchValue.toLocaleLowerCase()) >= 0) return true;
+      return false;
+    })
   }
 
   ngOnDestroy() {
