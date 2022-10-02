@@ -1,8 +1,6 @@
 <h2>Editar aluno</h2>
 
-<div class="spinner" *ngIf="!student">
-  <mat-spinner></mat-spinner>
-</div>
+<app-spinner class="spinner" *ngIf="!student"></app-spinner>
 
 <form (ngSubmit)="onSubmit()" [formGroup]="editStudentForm" #form="ngForm" *ngIf="student">
 

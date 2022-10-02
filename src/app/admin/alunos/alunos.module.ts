@@ -7,7 +7,7 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 
 // Modulos//
-import { AdminRoutingModule } from '../admin-routing.module';
+import { AlunosRoutingModule } from './alunos-routing.module';
 import { MaterialModule } from 'src/app/shared/material.module';
 import { SharedAdminModule } from '../shared/shared-admin.module';
 
@@ -57,7 +57,7 @@ export function getIntl() {
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AdminRoutingModule,
+    AlunosRoutingModule,
     SharedAdminModule,
     FormsModule,
   ],

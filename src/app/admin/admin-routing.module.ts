@@ -8,9 +8,7 @@ import { MainComponent } from './main/main.component';
 const routes: Routes = [
   {
     path: '', component: MainComponent, children: [
-      { path: 'alunos', component: HomeComponent },
-      { path: 'alunos/detalhes/:id', component: DetailsComponent },
-      { path: 'alunos/edit/:id', component: EditComponent },
+      { path: 'alunos', loadChildren: () => import('./alunos/alunos.module').then(m => m.AlunosModule) },
     ]
   },
 ];

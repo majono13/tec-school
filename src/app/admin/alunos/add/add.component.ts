@@ -69,11 +69,14 @@ export class AddComponent implements OnInit {
   /***** Pega cep e endereço *****/
   getAddress(inputValue: any) {
 
-    this.addressService.getAddress(inputValue)
-      .subscribe(data => {
-        if (data.erro) this.snackbar_.notify('CEP não encontrado!')
-        else this.showAddress(data);
-      });
+
+    if (this.addressService.getAddress(inputValue)) {
+      this.addressService.getAddress(inputValue)
+        .subscribe(data => {
+          if (data.erro) this.snackbar_.notify('CEP não encontrado!')
+          else this.showAddress(data);
+        });
+    }
   }
 
   showAddress(data: any) {

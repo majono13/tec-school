@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 //Módulos//
 import { AdminRoutingModule } from './admin-routing.module';
 import { MaterialModule } from '../shared/material.module';
-import { AlunosModule } from './alunos/alunos.module';
 
 // Componentes //
 import { MenuComponent } from './menu/menu.component';
@@ -21,7 +20,6 @@ import { HeaderComponent } from './header/header.component';
     CommonModule,
     MaterialModule,
     AdminRoutingModule,
-    AlunosModule,
   ]
 })
 export class AdminModule { }

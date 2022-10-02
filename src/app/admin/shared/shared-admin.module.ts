@@ -6,16 +6,18 @@ import { MaterialModule } from 'src/app/shared/material.module';
 
 //Componentes//
 import { InfoRouterComponent } from './components/info-router/info-router.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 @NgModule({
   declarations: [
-    InfoRouterComponent
+    InfoRouterComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
   ],
-  exports: [InfoRouterComponent]
+  exports: [InfoRouterComponent, SpinnerComponent]
 })
 export class SharedAdminModule { }

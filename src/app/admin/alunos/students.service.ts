@@ -30,4 +30,8 @@ export class StudentsService {
   editStudent(student: Student) {
     return this.studentsCollection.doc(student.id).set(student);
   }
+
+  deleteSudent(id: string) {
+    return this.studentsCollection.doc(id).delete();
+  }
 }
