@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Snackbar } from 'src/app/shared/components/snackbar.service';
 import { Student } from '../../models/aluno.model';
+import { ModalDeleteComponent } from '../../shared/components/modal-delete/modal-delete.component';
 import { StudentsService } from '../students.service';
 
 @Component({
@@ -16,7 +18,8 @@ export class DetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private studService: StudentsService,
     private router: Router,
-    private snackbar_: Snackbar) { }
+    private snackbar_: Snackbar,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getStudent();
@@ -47,13 +50,11 @@ export class DetailsComponent implements OnInit {
 
   }
 
-  delete() {
-    this.studService.deleteSudent(this.student.id)
-      .then(() => {
-        this.snackbar_.notify('Aluno excluído com sucesso!');
-        this.router.navigateByUrl('/admin/alunos');
-      })
-      .catch(() => this.snackbar_.notify('Falha ao excluir aluno, tente novamente.'));
+  delete(student: Student) {
+
+    this.dialog.open(ModalDeleteComponent, {
+      data: student
+    });
   }
 
 

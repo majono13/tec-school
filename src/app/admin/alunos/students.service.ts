@@ -14,7 +14,8 @@ export class StudentsService {
   constructor(private afs: AngularFirestore) { }
 
   getStudents(): Observable<Student[]> {
-    return this.studentsCollection.valueChanges();
+    return this.afs.collection<Student>('students', ref => ref.orderBy('firstname').startAfter('A'))
+      .valueChanges();
   }
 
   getStudentById(id: string): Observable<Student | undefined> {

@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Snackbar } from 'src/app/shared/components/snackbar.service';
 import { Student } from '../../models/aluno.model';
-import { AddressService } from '../address.service';
+import { AddressService } from '../../../shared/services/address.service';
 import { StudentsService } from '../students.service';
 
 @Component({

@@ -6,7 +6,7 @@
     <mat-card-title>
       {{student?.firstname}}
       {{student?.lastname}}
-      <mat-icon class="delete" title="Apagar aluno" (click)="delete()">delete_forever</mat-icon>
+      <mat-icon class="delete" title="Apagar aluno" (click)="delete(student)">delete_forever</mat-icon>
     </mat-card-title>
     <mat-card-subtitle>{{student?.course}}</mat-card-subtitle>
 

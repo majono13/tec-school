@@ -4,7 +4,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { Student } from '../../models/aluno.model';
 import { StudentsService } from '../students.service';
 import { Snackbar } from 'src/app/shared/components/snackbar.service';
-import { AddressService } from '../address.service';
+import { AddressService } from '../../../shared/services/address.service';
 
 
 @Component({

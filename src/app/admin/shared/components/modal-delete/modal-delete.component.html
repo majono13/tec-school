@@ -1,0 +1,13 @@
+<div *ngIf="data?.address">
+
+  <h3 *ngIf="data?.gender ==='Feminino'">
+    A aluna <span>{{data?.firstname | upper}} {{data?.lastname | upper}}</span> será removida da lista de alunos, deseja continuar?
+  </h3>
+
+  <h3 *ngIf="data?.gender !=='Feminino'">
+    O aluno <span>{{data?.firstname}} {{data?.lastname}}</span> será removido da lista de alunos, deseja continuar?
+  </h3>
+
+  <button (click)="delete()" mat-raised-button color="primary">Confirmar</button>
+  <button (click)="cancel()" mat-raised-button color="warn">Cancelar</button>
+</div>
