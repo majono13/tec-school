@@ -1,0 +1,26 @@
+<app-info-router route="Cursos"></app-info-router>
+
+<app-spinner *ngIf="!course"></app-spinner>
+
+<mat-card class="mat-card">
+    <mat-card-title>{{course?.name}}</mat-card-title>
+    <mat-card-subtitle>{{course?.teacher}}</mat-card-subtitle>
+
+  <div class="content">
+    <div class="img">
+      <img src="{{course?.urlImg}}">
+    </div>
+    <div>
+      <p><span>Status: </span>{{course?.status}}</p>
+      <p><span>Preço: </span>{{course?.price | currency: 'BRL':true}}</p>
+      <p><span>Alunos: </span><a routerLink="/admin/cursos/detalhes/alunos/{{course?.name}}">Visualizar lista</a></p>
+    </div>
+  </div>
+
+  <h3>Descrição</h3>
+  <p>{{course?.info}}</p>
+  <mat-card-actions>
+    <button routerLink="/admin/cursos" mat-button color="warn">Fechar</button>
+    <button routerLink="/admin/cursos/edit/{{course?.id}}" mat-button color="primary">Editar</button>
+  </mat-card-actions>
+</mat-card>

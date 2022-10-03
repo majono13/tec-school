@@ -6,6 +6,8 @@ import { Snackbar } from 'src/app/shared/components/snackbar.service';
 import { Student } from '../../models/aluno.model';
 import { AddressService } from '../../../shared/services/address.service';
 import { StudentsService } from '../students.service';
+import { CourseService } from '../../cursos/course.service';
+import { Course } from '../../models/curso.model';
 
 @Component({
   selector: 'app-edit',
@@ -18,6 +20,7 @@ export class EditComponent implements OnInit {
 
   student!: Student;
   unsubscribe$: Subject<any> = new Subject();
+  courses: Course[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -25,12 +28,20 @@ export class EditComponent implements OnInit {
     private snackbar_: Snackbar,
     private route: ActivatedRoute,
     private studService: StudentsService,
-    private router: Router) { }
+    private router: Router,
+    private courseService: CourseService) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
 
     this.getStudent(id);
+    this.getCourses();
+  }
+
+  getCourses() {
+    this.courseService.getCourses()
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(data => this.courses = data);
   }
 
   getStudent(id: string) {
@@ -53,6 +64,7 @@ export class EditComponent implements OnInit {
       birthday: [student?.birthday, [Validators.required]],
       telephone: [student?.telephone, [Validators.required]],
       gender: ['', [Validators.required]],
+      course: ['', [Validators.required]],
       address: this.fb.group({
         cep: [student?.address.cep, [Validators.required, Validators.minLength(8), Validators.maxLength(9)]],
         n: [student?.address.n, [Validators.required]],
@@ -62,7 +74,7 @@ export class EditComponent implements OnInit {
         city: [student?.address.city],
         state: [student?.address.state],
       })
-    })
+    });
   }
 
   onSubmit() {
@@ -71,7 +83,6 @@ export class EditComponent implements OnInit {
       ...this.editStudentForm.value,
       id: this.student.id,
       registNumber: this.student.registNumber,
-      course: this.student.course
     }
 
     this.editStudentForm.value.gender = this.getGender();

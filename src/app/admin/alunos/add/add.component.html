@@ -1,3 +1,4 @@
+
 <h2>Adcionar novo aluno</h2>
 
 <form (ngSubmit)="onSubmit()" [formGroup]="newStudentForm" #form="ngForm">
@@ -95,6 +96,15 @@
         </mat-form-field>
       </div>
     </section>
+
+    <!------ Sessão curso --------->
+
+    <mat-form-field appearance="outline">
+      <mat-label>Selecione o curso</mat-label>
+      <mat-select formControlName="course">
+        <mat-option *ngFor="let c of courses" value="{{c?.name}}">{{c?.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <!-- Genero -->
     <div class="row">

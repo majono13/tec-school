@@ -5,6 +5,8 @@ import { Student } from '../../models/aluno.model';
 import { StudentsService } from '../students.service';
 import { Snackbar } from 'src/app/shared/components/snackbar.service';
 import { AddressService } from '../../../shared/services/address.service';
+import { Course } from '../../models/curso.model';
+import { CourseService } from '../../cursos/course.service';
 
 
 @Component({
@@ -23,6 +25,7 @@ export class AddComponent implements OnInit {
     birthday: ['', [Validators.required]],
     telephone: ['', [Validators.required]],
     gender: [1, [Validators.required]],
+    course: ['', [Validators.required]],
     address: this.fb.group({
       cep: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(9)]],
       n: ['', [Validators.required]],
@@ -36,16 +39,25 @@ export class AddComponent implements OnInit {
 
   registNumber: number = 0;
   unsubscribe$: Subject<any> = new Subject();
+  courses: Course[] = [];
 
   constructor(
     private fb: FormBuilder,
     private studService: StudentsService,
     private addressService: AddressService,
-    private snackbar_: Snackbar
+    private snackbar_: Snackbar,
+    private courseService: CourseService
   ) { }
 
   ngOnInit(): void {
     this.getRegisterNumber();
+    this.getCourses();
+  }
+
+  getCourses() {
+    this.courseService.getCourses()
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(data => this.courses = data);
   }
 
 
@@ -63,7 +75,7 @@ export class AddComponent implements OnInit {
         this.snackbar_.notify('Aluno adicionado com sucesso!');
         this.cancel();
       })
-      .catch(() => this.snackbar_.notify('Falha a adicionar aluno, tente novamente ou contate um administrador.'));
+      .catch(() => this.snackbar_.notify('Ops! Algo deu errado, tente novamente ou contate um administrador'));
   }
 
   /***** Pega cep e endereço *****/

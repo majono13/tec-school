@@ -27,29 +27,3 @@ table th, table td {
 table th {
   background-color: rgb(236, 236, 236);
 }
-
-
-/******* Campo de pesquisa *******/
-
-.search-field {
-  text-align: center;
-  margin-top: 20px;
-}
-
-mat-form-field {
-  margin-right: 10px;
-}
-
-.search-res {
-  z-index: 700;
-
-}
-
-
-@media(max-width:767px) {
-  table th, table td {
-    font-size: 1em;
-    width: 20%;
-    padding: 10px 5px;
-  }
-}

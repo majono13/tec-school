@@ -1,3 +1,5 @@
+<app-info-router route="Alunos"></app-info-router>
+
 <h2>Editar aluno</h2>
 
 <app-spinner class="spinner" *ngIf="!student"></app-spinner>
@@ -92,6 +94,15 @@
         </mat-form-field>
       </div>
     </section>
+
+     <!------ Sessão curso --------->
+
+     <mat-form-field appearance="outline">
+      <mat-label>Selecione o curso</mat-label>
+      <mat-select formControlName="course">
+        <mat-option *ngFor="let c of courses" value="{{c?.name}}">{{c?.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <!-- Genero -->
     <div class="row">

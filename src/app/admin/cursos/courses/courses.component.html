@@ -1,0 +1,26 @@
+<app-spinner *ngIf="courses.length ==0"></app-spinner>
+
+<!----- Todos os alunos ------>
+<div *ngIf="courses.length > 0">
+  <table>
+    <thead>
+      <td>Nome</td>
+      <td>Professor</td>
+      <td></td>
+    </thead>
+
+      <tbody *ngFor="let course of pageSlice">
+        <td>{{course?.name}}</td>
+        <td>{{course?.teacher}}</td>
+        <td><button routerLink="/admin/cursos/detalhes/{{course?.id}}" mat-button color="primary">Detalhes</button></td>
+      </tbody>
+
+  </table>
+
+  <mat-paginator
+  (page)="onPageEvent($event)"
+  [length]="courses.length"
+  [pageSizeOptions]="[5, 10, 50]"
+  aria-label="Select page">
+  </mat-paginator>
+</div>

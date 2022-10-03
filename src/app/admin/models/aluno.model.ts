@@ -10,5 +10,5 @@ export interface Student {
   address: Address;
   id: string;
   registNumber: number;
-  course: string[];
+  course: string;
 }

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { from, map, Observable } from 'rxjs';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Student } from '../models/aluno.model';
 
 @Injectable({
@@ -20,6 +21,11 @@ export class StudentsService {
 
   getStudentById(id: string): Observable<Student | undefined> {
     return this.studentsCollection.doc(id).valueChanges();
+  }
+
+  getStudentsByCourse(course: string): Observable<Student[]> {
+    return this.afs.collection<Student>('students', ref => ref.orderBy('course').startAt(course).endAt(course))
+      .valueChanges();
   }
 
   newStudent(student: Student): Promise<void> {

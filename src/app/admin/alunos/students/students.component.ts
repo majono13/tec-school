@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { pipe, Subject, takeUntil } from 'rxjs';
 import { Snackbar } from 'src/app/shared/components/snackbar.service';
 import { Student } from '../../models/aluno.model';
+import { PaginatorService } from '../../shared/paginator.service';
 import { StudentsService } from '../students.service';
 
 @Component({
@@ -16,7 +17,10 @@ export class StudentsComponent implements OnInit {
   unsubscribe$: Subject<any> = new Subject();
   searchValue: string = '';
 
-  constructor(private studService: StudentsService, private sanckbar: Snackbar) { }
+  constructor(
+    private studService: StudentsService,
+    private sanckbar: Snackbar,
+    private paginator: PaginatorService) { }
 
   ngOnInit(): void {
     this.getStudents()
@@ -35,12 +39,7 @@ export class StudentsComponent implements OnInit {
   }
 
   onPageEvent(event: any): void {
-    const startIndex = event.pageIndex * event.pageSize;
-    let endIndex = startIndex + event.pageSize;
-
-    if (endIndex > this.students.length) endIndex = this.students.length;
-
-    this.pageSlice = this.students.slice(startIndex, endIndex);
+    this.pageSlice = this.paginator.onPageEvent(event, this.students)
   }
 
   search() {

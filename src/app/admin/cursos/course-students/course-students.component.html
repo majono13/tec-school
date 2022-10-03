@@ -1,0 +1,17 @@
+<app-info-router route="Alunos curso {{course}}"></app-info-router>
+
+<app-spinner *ngIf="students.length == 0"></app-spinner>
+
+  <div *ngIf="students.length >0">
+    <table>
+      <thead>
+        <td>Nome</td>
+        <td></td>
+      </thead>
+        <tbody *ngFor="let student of students">
+          <td>{{student?.firstname | upper}} {{student?.lastname | upper}}</td>
+          <td><button routerLink="/admin/alunos/detalhes/{{student?.id}}" mat-button color="primary">Detalhes</button></td>
+        </tbody>
+    </table>
+    <button routerLink="/admin/cursos" mat-raised-button color="warn"> Sair</button>
+  </div>

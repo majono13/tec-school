@@ -1,0 +1,58 @@
+
+<h2>Novo Curso</h2>
+
+<form [formGroup]="newCourseForm" (ngSubmit)="onSubmit()" #form="ngForm">
+  <div class="row">
+
+    <mat-form-field appearance="outline" class="col-12">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Nome do curso" formControlName="name">
+
+      <mat-error>Campo "Nome" não pode estar vazio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-12">
+      <mat-label>Capa</mat-label>
+      <input matInput placeholder="URL da imagem de capa do curso" formControlName="urlImg">
+
+      <mat-error>Campo "Nome" não pode estar vazio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-12 col-md-6">
+      <mat-label>Professor</mat-label>
+      <input matInput placeholder="Nome do Professor do curso" formControlName="teacher">
+
+      <mat-error>Campo "Professor" deve ter 3 ou mais caracteres</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-12 col-md-6">
+      <mat-label>Preço</mat-label>
+      <input matInput type="number" placeholder="Valor do curso" formControlName="price">
+
+      <mat-hint>Apenas números</mat-hint>
+      <mat-error>Campo "Preço" não pode estar vazio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-12">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput placeholder="Descrição do conteúdo do curso" formControlName="info"></textarea>
+
+      <mat-error>Campo "Descriçãodeve ter 50 ou mais caracteres</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-md-6 col-12 select">
+      <mat-label>Escolha o status:</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="Ativo">Ativo</mat-option>
+        <mat-option value="Desabilitado">Desabilitado</mat-option>
+      </mat-select>
+
+      <mat-hint>* Cursos com status de "Ativo" estão disponíveis para compra, enquanto que os cursos com status de "Desabilitado" não estao disponíveis </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <button [disabled]="newCourseForm.invalid" mat-raised-button color="primary">Salvar</button>
+  <button (click)="cancel()" mat-raised-button color="warn">Cancelar</button>
+</form>
+
+

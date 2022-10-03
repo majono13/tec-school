@@ -1,0 +1,40 @@
+form, h2 {
+  margin-top: 20px;
+  text-align: left;
+  padding: 0 10px;
+}
+
+h2 {
+  text-decoration: underline;
+  font-family: var(--font-text);
+  color: var(--cor4);
+}
+
+textarea {
+  height: 200px;
+}
+
+button {
+  margin-right: 10px;
+}
+
+.select {
+  margin-bottom: 50px;
+}
+
+/******* Configurações da barra de scrow do textarea**********/
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cor1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cor2);
+}
