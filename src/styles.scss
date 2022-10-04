@@ -39,3 +39,32 @@ $my-theme: mat.define-light-theme((
   font-family: var(--font-text);
 }
 
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
+}
+
+thead td {
+  font-weight: bold;
+  color: white
+}
+
+thead {
+  background-color: var(--cor1);
+}
+
+table th, table td {
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  width: 24%;
+  font-family: var(--font-text);
+  font-size: 1.1em;
+  padding: 10px;
+}
+
+table th {
+  background-color: rgb(236, 236, 236);
+}

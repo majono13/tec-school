@@ -7,6 +7,7 @@ const routes: Routes = [
     path: '', component: MainComponent, children: [
       { path: 'alunos', loadChildren: () => import('./alunos/alunos.module').then(m => m.AlunosModule) },
       { path: 'cursos', loadChildren: () => import('./cursos/cursos.module').then(m => m.CursosModule) },
+      { path: 'colaboradores', loadChildren: () => import('./colaboradores/colaboradores.module').then(m => m.ColaboradoresModule) }
     ]
   },
 ];

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs'
 
 import { Course } from '../../models/curso.model';
-import { PaginatorService } from '../../shared/paginator.service';
+import { PaginatorService } from '../../shared/services/paginator.service';
 import { CourseService } from '../course.service';
 
 @Component({

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { pipe, Subject, takeUntil } from 'rxjs';
 import { Snackbar } from 'src/app/shared/components/snackbar.service';
 import { Student } from '../../models/aluno.model';
-import { PaginatorService } from '../../shared/paginator.service';
+import { PaginatorService } from '../../shared/services/paginator.service';
 import { StudentsService } from '../students.service';
 
 @Component({

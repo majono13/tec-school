@@ -64,7 +64,7 @@ export class EditComponent implements OnInit {
       birthday: [student?.birthday, [Validators.required]],
       telephone: [student?.telephone, [Validators.required]],
       gender: ['', [Validators.required]],
-      course: ['', [Validators.required]],
+      course: [student?.course, [Validators.required]],
       address: this.fb.group({
         cep: [student?.address.cep, [Validators.required, Validators.minLength(8), Validators.maxLength(9)]],
         n: [student?.address.n, [Validators.required]],

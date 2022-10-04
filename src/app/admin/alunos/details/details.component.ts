@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Snackbar } from 'src/app/shared/components/snackbar.service';
+import { Subject, takeUntil } from 'rxjs';
 import { Student } from '../../models/aluno.model';
 import { ModalDeleteComponent } from '../../shared/components/modal-delete/modal-delete.component';
 import { StudentsService } from '../students.service';
@@ -14,11 +14,11 @@ import { StudentsService } from '../students.service';
 export class DetailsComponent implements OnInit {
 
   student!: Student;
+  unsubscribe$: Subject<any> = new Subject();
 
   constructor(private route: ActivatedRoute,
     private studService: StudentsService,
     private router: Router,
-    private snackbar_: Snackbar,
     public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -29,13 +29,12 @@ export class DetailsComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
 
     this.studService.getStudentById(id)
+      .pipe(takeUntil(this.unsubscribe$))
       .subscribe(res => {
-        if (res) {
-          this.student = res;
-        }
+        if (res) this.student = res;
 
         else this.router.navigateByUrl('/not-found');
-      })
+      });
 
   }
 
@@ -57,5 +56,8 @@ export class DetailsComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    this.unsubscribe$.complete();
+  }
 
 }
