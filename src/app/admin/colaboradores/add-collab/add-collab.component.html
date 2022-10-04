@@ -1,0 +1,38 @@
+
+<form [formGroup]="newCollabForm" #form="ngForm">
+  <div class="row">
+    <mat-form-field appearance="outline" class="col-12">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Nome do colaborador" formControlName="name">
+
+      <mat-error>Campo "Nome" deve ter 3 ou mais caracteres</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-12">
+      <mat-label>E-mail</mat-label>
+      <input matInput placeholder="E-mail do colaborador" formControlName="email">
+
+      <mat-error>E-mail inválido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-12 col-md-8">
+      <mat-label>Código de acesso</mat-label>
+      <input matInput placeholder="Código que o usuário irá usar para realizar o acesso" formControlName="acessCode">
+
+      <mat-error> Código deve ter no mínimo 6 dígitos</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-12 col-md-4">
+      <mat-label>Selecione a permissão</mat-label>
+      <mat-select formControlName="permission">
+        <mat-option value="admin">Administrador</mat-option>
+        <mat-option value="moderador">Moderador</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="button">
+    <button [disabled]="newCollabForm.invalid" (click)="onSubmit()" mat-raised-button color="primary">Confirmar</button>
+    <button (click)="cancel()" mat-raised-button color="warn">Cancelar</button>
+  </div>
+</form>

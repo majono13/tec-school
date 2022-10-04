@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Student } from '../models/aluno.model';
 

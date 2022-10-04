@@ -68,3 +68,10 @@ table th, table td {
 table th {
   background-color: rgb(236, 236, 236);
 }
+
+
+button:hover {
+  opacity: .9;
+
+  transition: .3s;
+}

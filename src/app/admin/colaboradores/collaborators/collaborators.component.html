@@ -1,1 +1,26 @@
-<p>collaborators works!</p>
+<app-spinner *ngIf="!collaborators"></app-spinner>
+
+<div *ngIf="collaborators">
+  <table>
+    <thead>
+      <td>Nome</td>
+      <td>Permissão</td>
+      <td>Status</td>
+    </thead>
+
+    <tbody *ngFor="let collaborator of collaborators | async">
+      <td>{{collaborator?.name | upper}}</td>
+      <td class="permission" title="Alterar permissão" (click)="editPermission(collaborator)">
+        {{collaborator?.permission | upper}}
+      </td>
+      <td [classList]="collaborator?.status == 'Ativo'? 'at' : 'dt'"
+        [title]="collaborator?.status == 'Ativo'? 'Desativado' : 'Ativar'"
+        (click)="editStatus(collaborator)">
+        {{collaborator?.status}}
+      </td>
+
+    </tbody>
+
+  </table>
+
+</div>
