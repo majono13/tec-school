@@ -1,0 +1,23 @@
+
+  <div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h1>Login</h1>
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input matInput placeholder="Digite seu e-mail" formControlName="email">
+        <mat-error>E-mail inválido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Código de acesso</mat-label>
+        <input matInput placeholder="Digite seu código de acesso" formControlName="acessCode">
+        <mat-error>O código deve ter no mínimo 6 dígitos</mat-error>
+      </mat-form-field>
+
+      <button [disabled]="loginForm.invalid" mat-raised-button color="primary">Login</button>
+    </form>
+  </div>
+
+  <div class="logo">
+    <img src="../../../assets/img/logo.svg">
+  </div>

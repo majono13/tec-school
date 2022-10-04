@@ -1,0 +1,19 @@
+div {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+
+h1 {
+  color: var(--cor1);
+}
+
+@media(max-width: 768px) {
+  img {
+    max-width: 40%;
+    margin-left: 10px;
+  }
+}

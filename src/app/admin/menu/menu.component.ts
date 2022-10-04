@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  collaboratorsSection: Observable<boolean>;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+
+    this.collaboratorsSection = this.authService.getPermissionUser();
   }
 
 }

@@ -1,6 +1,6 @@
 <div class="nav">
   <div class="act">
-    <div class="logo-img">
+    <div class="logo-img" routerLink="/admin">
       <img src="../../../assets/img/favicon.svg">
     </div>
     <span routerLink="/admin/alunos" routerLinkActive="active-router">
@@ -11,7 +11,7 @@
       <mat-icon>menu_book</mat-icon>
       <p class="info">Cursos</p>
     </span>
-    <span routerLinkActive="active-router" routerLink="/admin/colaboradores">
+    <span *ngIf="(collaboratorsSection | async) " routerLinkActive="active-router" routerLink="/admin/colaboradores">
       <mat-icon>account_circle</mat-icon>
       <p class="info">Colaboradores</p>
     </span>

@@ -10,6 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './header/header.component';
 import { CursosModule } from './cursos/cursos.module';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { CursosModule } from './cursos/cursos.module';
     MenuComponent,
     MainComponent,
     HeaderComponent,
+    HomeComponent,
   ],
   imports: [
     CommonModule,
