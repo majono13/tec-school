@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 // Módulos //
 import { CursosRoutingModule } from './cursos-routing.mocule';
 import { SharedAdminModule } from '../shared/shared-admin.module';
-import { MaterialModule } from 'src/app/shared/material.module';
+import { MaterialModule } from '../shared/material.module';
 
 // Componentes//
 import { HomeComponent } from './home/home.component';

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 //Módulos//
 import { AdminRoutingModule } from './admin-routing.module';
-import { MaterialModule } from '../shared/material.module';
+import { MaterialModule } from './shared/material.module';
 
 // Componentes //
 import { MenuComponent } from './menu/menu.component';

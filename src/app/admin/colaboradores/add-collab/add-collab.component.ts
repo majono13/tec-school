@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
-import { Snackbar } from 'src/app/shared/components/snackbar.service';
+import { Snackbar } from '../../shared/services/snackbar.service';
 import { CollaboratorsService } from '../collaborators.service';
 
 @Component({

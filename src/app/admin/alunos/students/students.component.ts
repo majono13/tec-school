@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { pipe, Subject, takeUntil } from 'rxjs';
-import { Snackbar } from 'src/app/shared/components/snackbar.service';
+import { Subject, takeUntil } from 'rxjs';
+
 import { Student } from '../../models/aluno.model';
 import { PaginatorService } from '../../shared/services/paginator.service';
+import { Snackbar } from '../../shared/services/snackbar.service';
 import { StudentsService } from '../students.service';
 
 @Component({

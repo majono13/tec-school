@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivateChild, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { Collaborator } from 'src/app/admin/models/colaborador.model';
-import { Snackbar } from 'src/app/shared/components/snackbar.service';
+import { Snackbar } from 'src/app/admin/shared/services/snackbar.service';
+
 import { AuthService } from '../auth.service';
 
 @Injectable({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Snackbar } from 'src/app/shared/components/snackbar.service';
+import { Snackbar } from '../../shared/services/snackbar.service';
 import { Course } from '../../models/curso.model';
 import { CourseService } from '../course.service';
 

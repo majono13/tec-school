@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Snackbar } from 'src/app/shared/components/snackbar.service';
+import { Snackbar } from 'src/app/admin/shared/services/snackbar.service';
+
 import { AuthService } from '../auth.service';
 
 @Component({

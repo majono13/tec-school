@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { Snackbar } from 'src/app/shared/components/snackbar.service';
 import { Student } from '../../models/aluno.model';
-import { AddressService } from '../../../shared/services/address.service';
 import { StudentsService } from '../students.service';
 import { CourseService } from '../../cursos/course.service';
 import { Course } from '../../models/curso.model';
+import { AddressService } from '../../shared/services/address.service';
+import { Snackbar } from '../../shared/services/snackbar.service';
 
 @Component({
   selector: 'app-edit',

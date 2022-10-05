@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { info } from 'console';
 import { Observable } from 'rxjs';
-import { Snackbar } from 'src/app/shared/components/snackbar.service';
+
 
 
 import { Collaborator } from '../../models/colaborador.model';
+import { Snackbar } from '../../shared/services/snackbar.service';
 import { CollaboratorsService } from '../collaborators.service';
 
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
-import { Snackbar } from 'src/app/shared/components/snackbar.service';
+import { Snackbar } from '../../shared/services/snackbar.service';
 import { CourseService } from '../course.service';
 
 @Component({

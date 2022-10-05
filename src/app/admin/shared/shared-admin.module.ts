@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 //Módulos//
-import { MaterialModule } from 'src/app/shared/material.module';
+import { MaterialModule } from './material.module';
 
 //Componentes//
 import { InfoRouterComponent } from './components/info-router/info-router.component';

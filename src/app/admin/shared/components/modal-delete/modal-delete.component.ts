@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { StudentsService } from 'src/app/admin/alunos/students.service';
 import { Student } from 'src/app/admin/models/aluno.model';
-import { Snackbar } from 'src/app/shared/components/snackbar.service';
+import { Snackbar } from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-modal-delete',

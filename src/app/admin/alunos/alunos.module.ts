@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 // Modulos//
 import { AlunosRoutingModule } from './alunos-routing.module';
-import { MaterialModule } from 'src/app/shared/material.module';
+import { MaterialModule } from '../shared/material.module';
 import { SharedAdminModule } from '../shared/shared-admin.module';
 
 // Componentes//
@@ -17,7 +17,7 @@ import { StudentsComponent } from './students/students.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 
-import { AddressService } from '../../shared/services/address.service';
+import { AddressService } from '../shared/services/address.service';
 
 @NgModule({
   declarations: [
